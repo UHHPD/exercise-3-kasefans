@@ -31,5 +31,22 @@ int main() {
     ofstream fout("hist.txt");
     for(unsigned int k = 0 ; k < zaehler.size() ; ++k) {
         fout << k << " " << zaehler[k] << endl;}
+
+    //Close output file.
+    fout.close();
+
+    //function that computes poisson probability.
+    double poisson(double mu, int k) {
+        double pow(double mu, double k) * double exp(- double mu) / double tgamma(double k + 1);
+    }
+
+    //Write in file.
+    ofstream f2out("histpoi.txt");
+    
+    for(unsigned int k = 0 ; k < zaehler.size() ; ++k) {
+        f2out << k << " " << zaehler[k] << zaehler[k]*poisson(k, 3.11538) << endl;
+    }
+    //Close output file.
+    f2out.close();
     }
 }
