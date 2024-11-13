@@ -30,6 +30,6 @@ int main() {
     //Write in file.
     ofstream fout("hist.txt");
     for(unsigned int k = 0 ; k < zaehler.size() ; ++k) {
-        fout << k << ":" << zaehler[k] << endl;}
+        fout << k << " " << zaehler[k] << endl;}
     }
 }
