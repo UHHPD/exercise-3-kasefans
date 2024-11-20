@@ -1,10 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <cmath>
 
 
-double poisson(double mu, int k) {
-    return 0;
+double poisson(double mu, int k){
+    return pow(mu, k) * exp(- mu) / tgamma(k + 1);
 }
 
 int main() {
@@ -26,27 +27,23 @@ int main() {
     //Print out of countings.
     for(unsigned int k = 0 ; k < zaehler.size() ; ++k) {
         cout << k << ":" << zaehler[k] << endl;
+    }
 
     //Write in file.
     ofstream fout("hist.txt");
     for(unsigned int k = 0 ; k < zaehler.size() ; ++k) {
-        fout << k << " " << zaehler[k] << endl;}
+        fout << k << " " << zaehler[k] << endl;
+    }
 
     //Close output file.
     fout.close();
-
-    //function that computes poisson probability.
-    double poisson(double mu, int k) {
-        double pow(double mu, double k) * double exp(- double mu) / double tgamma(double k + 1);
-    }
 
     //Write in file.
     ofstream f2out("histpoi.txt");
     
     for(unsigned int k = 0 ; k < zaehler.size() ; ++k) {
-        f2out << k << " " << zaehler[k] << zaehler[k]*poisson(k, 3.11538) << endl;
+        f2out << k << " " << zaehler[k] << " " << zaehler[k]*poisson(k, 3.11538) << endl;
     }
     //Close output file.
     f2out.close();
-    }
 }
