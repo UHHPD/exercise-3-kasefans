@@ -42,7 +42,7 @@ int main() {
     ofstream f2out("histpoi.txt");
     
     for(unsigned int k = 0 ; k < zaehler.size() ; ++k) {
-        f2out << k << " " << zaehler[k] << " " << k * zaehler[k]*poisson(k, 3.11538) << endl;
+        f2out << k << " " << zaehler[k] << " " << zaehler[k]*poisson(3.11538, k) << endl;
     }
     //Close output file.
     f2out.close();
